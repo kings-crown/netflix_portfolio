@@ -1,44 +1,52 @@
 import React from 'react';
 import './Blogs.css';
-import { FaMedium, FaDev } from 'react-icons/fa';
+import { FaBookOpen, FaUniversity } from 'react-icons/fa';
+import { AiOutlineFilePdf } from 'react-icons/ai';
 
-const blogs = [
+const publications = [
   {
-    title: "Make Your Rails Console Look Better",
-    platform: "Medium",
-    icon: <FaMedium />,
-    link: "https://medium.com/@chintusamala96/make-your-rails-console-look-better-510988d40566",
-    description: "Learn tips to customize your Rails console for a better experience.",
+    title: "Anatomy of an AI Economy",
+    platform: "IEEE ISSE 2024",
+    icon: <FaUniversity />,
+    link: "https://ieeexplore.ieee.org/document/10741091", // Replace with actual link
+    description: "Explores AI's role in shaping modern economic structures and implications.",
   },
   {
-    title: "Docker Fundas - My Version",
-    platform: "Medium",
-    icon: <FaMedium />,
-    link: "https://medium.com/@chintusamala96/docker-fundas-my-version-7b9262bd90d4",
-    description: "An introductory guide to Docker fundamentals from my perspective.",
+    title: "Identification of Variables Impacting Cascading Failures in Aerospace Systems",
+    platform: "CSER 2024",
+    icon: <FaUniversity />,
+    link: "https://link.springer.com/chapter/10.1007/978-3-031-62554-1_26", // Replace with actual link
+    description: "Analyzes key variables influencing cascading failures using systems thinking.",
   },
   {
-    title: "Grape Gem in Ruby on Rails: Handling User Model and API Endpoint",
-    platform: "Dev.to",
-    icon: <FaDev />,
-    link: "https://dev.to/samalasumanth0262/grape-gem-in-ruby-on-rails-handling-user-model-and-api-endpoint-g6d",
-    description: "A guide to using the Grape gem for API development in Ruby on Rails.",
+    title: "A Game Theoretic Approach for Validator Selection in Proof of Stake Blockchains",
+    platform: "ICoABCD 2023",
+    icon: <FaBookOpen />,
+    link: "https://ieeexplore.ieee.org/document/10390962", // Replace with actual link
+    description: "Proposes a game-theoretic model to optimize validator selection in PoS systems.",
+  },
+  {
+    title: "Neural Theorem Proving: Generating and Structuring Proofs for Formal Verification",
+    platform: "NeSy 2025 (Under Review)",
+    icon: <AiOutlineFilePdf />,
+    link: "https://openreview.net/attachment?id=QeoJtLyRsn&name=pdf", // Replace with actual link or placeholder
+    description: "Introduces a framework for LLM-based formal verification and neural theorem proving.",
   },
 ];
 
 const Blogs: React.FC = () => {
   return (
     <div className="blogs-container">
-      <h2 className="blogs-title">✍️ My Blog Posts</h2>
-      <p className="blogs-intro">A collection of my thoughts and tutorials on software development.</p>
+      <h2 className="blogs-title">📚 My Research Publications</h2>
+      <p className="blogs-intro">A curated collection of my contributions to AI, formal verification, and systems engineering.</p>
       <div className="blogs-grid">
-        {blogs.map((blog, index) => (
-          <a href={blog.link} key={index} target="_blank" rel="noopener noreferrer" className="blog-card" style={{ '--delay': `${index * 0.2}s` } as React.CSSProperties}>
-            <div className="blog-icon animated-icon">{blog.icon}</div>
+        {publications.map((pub, index) => (
+          <a href={pub.link} key={index} target="_blank" rel="noopener noreferrer" className="blog-card" style={{ '--delay': `${index * 0.2}s` } as React.CSSProperties}>
+            <div className="blog-icon animated-icon">{pub.icon}</div>
             <div className="blog-info animated-text">
-              <h3 className="blog-title">{blog.title}</h3>
-              <p className="blog-description">{blog.description}</p>
-              <span className="blog-platform">{blog.platform}</span>
+              <h3 className="blog-title">{pub.title}</h3>
+              <p className="blog-description">{pub.description}</p>
+              <span className="blog-platform">{pub.platform}</span>
             </div>
           </a>
         ))}
