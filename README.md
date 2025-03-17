@@ -1,4 +1,4 @@
-## 🌟 Balaji's Netflix inspired Portfolio 🌟 - Inspired by https://sumanthsamala.com/
+## 🌟 Balaji's Netflix inspired Portfolio 🌟 
 
 Welcome to my personal portfolio project! 🚀 This website showcases my work, skills, and experiences in web development. It's designed to be lightweight, customizable, and professional while maintaining an approachable style.
 
