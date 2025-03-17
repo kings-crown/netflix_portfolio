@@ -1,10 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Projects.css';
 import { FaReact, FaNodeJs, FaAws, FaDatabase, FaDocker, FaAngular, FaGithub, FaGitlab, FaGoogle, FaJava, FaJenkins, FaMicrosoft, FaPython, FaVuejs } from 'react-icons/fa';
 import { SiRubyonrails, SiPostgresql, SiMongodb, SiMaterialdesign, SiHtml5, SiCss3, SiJquery, SiAwsamplify, SiFirebase, SiTerraform, SiArgo } from 'react-icons/si';
-import { Project } from '../types';
-import { getProjects } from '../queries/getProjects';
 import { GrDeploy, GrKubernetes } from "react-icons/gr";
+import { Project } from '../types';
+
+// 🔥 Static project data 
+const projects: Project[] = [
+  {
+    title: "ProofSeek Framework",
+    description: "A neural theorem proving framework integrating LLMs with Isabelle for formal verification.",
+    image: { url: "/images/proofseek.png" }, // Replace with correct image path
+    techUsed: "Python, Isabelle, Reinforcement Learning, AWS, GitHub"
+  },
+  {
+    title: "AWS S3 Policy Verifier",
+    description: "A system to autoformalize and verify AWS S3 policies using logical statements.",
+    image: { url: "/images/aws-policy.png" },
+    techUsed: "Python, Isabelle, GCP, Docker, CI/CD"
+  },
+  {
+    title: "BERT Financial Forecasting",
+    description: "Multimodal time-series forecasting using BERT embeddings combined with financial data.",
+    image: { url: "/images/forecasting.png" },
+    techUsed: "Python, TensorFlow, AWS, PostgreSQL, GitHub"
+  },
+];
 
 const techIcons: { [key: string]: JSX.Element } = {
   "ReactJS": <FaReact />,
@@ -57,23 +78,12 @@ const techIcons: { [key: string]: JSX.Element } = {
   'Tailwind CSS': <SiCss3 />,
   'Bootstrap': <SiCss3 />,
   'JQuery': <SiJquery />,
+  'Isabelle': <FaJava />, // Or find a suitable icon
+  'Reinforcement Learning': <FaPython />,
+  'TensorFlow': <FaPython />,
 };
 
-
 const Projects: React.FC = () => {
-  const [projects, setProjects] = useState<Project[]>([])
-  
-  useEffect(() => { 
-    async function fetchProjects() {
-      const data = await getProjects();
-      setProjects(data);
-    }
-    
-    fetchProjects()
-  }, [])
-  
-  if (projects.length === 0) return <div>Loading...</div>;
-
   return (
     <div className="projects-container">
       <div className="projects-grid">
